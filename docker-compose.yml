@@ -1,0 +1,26 @@
+version: '3'
+networks:
+  banco:
+services:
+  db:
+    restart: always
+    image: postgres
+    networks:
+      - banco
+  app:
+    restart: always
+    build: .
+    volumes:
+      - .:/code
+    working_dir: /code
+    command: >
+        bash -c "python manage.py migrate
+        && python manage.py runserver 0.0.0.0:8000"
+    ports:  
+      - 8000:8000  
+    networks:
+      - banco
+    depends_on:
+      - db
+    environment:
+      - DB_NAME=email_sender
