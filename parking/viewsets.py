@@ -22,16 +22,16 @@ class ParkingViewSet(ModelViewSet):
                 registro.save()
         return queryset
 
-    def list(self, request, *args, **kwargs): #GET
+    def list(self, request, *args, **kwargs): 
         queryset = self.get_queryset()
         if 'plate' in self.kwargs:
             queryset = queryset.filter(plate=self.kwargs['plate'])
         serializer = self.get_serializer(queryset,many=True)
         return Response(serializer.data)
 
-    # pontoturistico/1/denunciar
-    @action(methods=['put'],detail=True)  # detail=True passa a Primare Key
-    def out(self,request, pk=None): # pegar a PrimareKey
+    # parking/1/out
+    @action(methods=['put'],detail=True)  
+    def out(self,request, pk=None): 
         queryset = self.get_queryset()
         queryset = queryset.filter(pk=pk)[0]
         if queryset.paid == True:
@@ -43,9 +43,9 @@ class ParkingViewSet(ModelViewSet):
             return Response({"Erro":"Pagamento pendente"},status=status.HTTP_400_BAD_REQUEST)
         
 
-    # pontoturistico/1/denunciar
-    @action(methods=['put'],detail=True)  # detail=True passa a Primare Key
-    def pay(self,request, pk=None): # pegar a PrimareKey
+    # parking/1/pay
+    @action(methods=['put'],detail=True)  
+    def pay(self,request, pk=None): 
         queryset = self.get_queryset()
         queryset = queryset.filter(pk=pk)[0]
         queryset.paid = True
