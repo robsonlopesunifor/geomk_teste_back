@@ -1,10 +1,5 @@
-# teste Geomk
+# GeoMK - Teste back-end
 
-[Teste front-end](/front-end.md)
+Como o objetivo é avaliar minha linha de raciocínio ao resolver o desafio, achei melhor fazer um vídeo explicando, como e porque eu fiz o que fiz.
 
-[Teste back-end](/back-end.md)
-
-# Dúvidas
-Quaisquer dúvidas que você venha a ter, consulte as issues para ver se alguém já não a fez e caso você não ache sua resposta, abra você mesmo uma nova issue!
-
-Boa sorte e bora codar! \o/
+[Vídeo explicativo.](http://sviridovserg.com/2017/05/22/embed-youtube-to-markdown/)
